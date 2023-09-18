@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    font-size: 15px;
+    font-family: "Bebas Neue";
+}
+*{
+    background-image: url("imagenes/Casino.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}

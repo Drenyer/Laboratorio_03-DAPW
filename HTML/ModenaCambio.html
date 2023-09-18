@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipo de Cambio</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Estilosuma.css">
+    <script>
+        function eleccion() {
+            opciones1 = document.getElementsByName("eleccion1");
+            opciones2 = document.getElementsByName("eleccion2");
+            console.log(opciones1, opciones2);
+            for (let i = 0; i < opciones2.length; i++) { // Cambiar a opciones2
+                if (opciones2[i].checked) { // Cambiar a opciones2
+                    alert(opciones2[i].value); // Cambiar a opciones2
+                }
+            }
+        }
+        function cambio() {
+            var monto, opcionSeleccionada;
+            monto = parseInt(document.getElementById("monto").value);
+            opcionSeleccionada1 = document.querySelector('input[name="eleccion2"]:checked').value;
+            opcionSeleccionada2 = document.querySelector('input[name="eleccion1"]:checked').value;
+            switch (opcionSeleccionada1) {
+                case "Usted eligió DOLAR":
+                    if(opciones1[0].checked){
+                        alert("Deberia de elegir una opción mejor")
+                    }
+                    if(opciones1[1].checked){
+                        conversion=monto*0.94
+                        alert("El monto en euros es:"+conversion)
+                    }
+                    if(opciones1[2].checked){
+                        conversion=monto*3.71
+                        alert("El monto en soles es:"+conversion)
+                    }
+                    break;
+                case "Usted eligió EURO":
+                    if(opciones1[0].checked){
+                        conversion=monto/0.94
+                        alert("El monto en soles es:"+conversion)
+                    }
+                    if(opciones1[1].checked){
+                        alert("Deberia de elegir una opción mejor")
+                    }
+                    if(opciones1[2].checked){
+                        conversion=monto*3.96
+                        alert("El monto en soles es:"+conversion)
+                    }
+                    break;
+                case "Usted eligió SOL":
+                    if(opciones1[0].checked){
+                        conversion=monto*0.27
+                        alert("El monto en soles es:"+conversion)
+                    }
+                    if(opciones1[1].checked){
+                        conversion=monto*0.25
+                        alert("El monto en soles es:"+conversion)
+                    }
+                    if(opciones1[2].checked){
+                        alert("Deberia de elegir una opción mejor")
+                    }
+                    break;
+                default:
+                    alert("Seleccione una moneda válida");
+            }
+            console.log("Monto convertido:", monto);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Casa de Cambio</h1>
+    <p>Elija la moneda que ingresará:</p>
+    <input type="radio" name="eleccion2" value="Usted eligió DOLAR" checked onclick="eleccion()">DOLAR
+    <input type="radio" name="eleccion2" value="Usted eligió EURO" onclick="eleccion()">EURO
+    <input type="radio" name="eleccion2" value="Usted eligió SOL" onclick="eleccion()">SOL
+    <p>Ingrese el monto que desea cambiar:</p>
+    <input type="text" id="monto" /><br />
+    <p>Elija el tipo de cambio que desea realizar:</p>
+    <input type="radio" name="eleccion1" value="Usted eligió DOLAR" checked onclick="eleccion()">DOLAR
+    <input type="radio" name="eleccion1" value="Usted eligió EURO" onclick="eleccion()">EURO
+    <input type="radio" name="eleccion1" value="Usted eligió SOL" onclick="eleccion()">SOL
+    <p></p>
+    <button type="button" onclick="cambio()">Ejecutar</button>
+</body>
+
+</html>
+
